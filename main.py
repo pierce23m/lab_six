@@ -7,7 +7,13 @@ def password_encoder(password):
         encoded_digit = str((int(digit) + 3) % 10)
         encoded_password += encoded_digit
     return encoded_password
-
+def password_decoder(password):
+    decoded_password = ""
+    for digit in password:
+        # Convert the digit to an integer, add 3, and take the remainder divided by 10
+        decoded_digit = str((int(digit) - 3) % 10)
+        decoded_password += decoded_digit
+    return decoded_password
 if __name__ == '__main__':
     while True:
         print("Menu")
@@ -22,7 +28,6 @@ if __name__ == '__main__':
             passcode_encoded = password_encoder(password)
         elif selection == 2:
             print(f"The encoded password is {passcode_encoded}, and the original password is {password}. ")
-            exit()
         elif selection == 3:
             exit()
 
